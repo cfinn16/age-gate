@@ -1,15 +1,16 @@
 # Age Gate
 by Connor Finnegan
 
-Inspired by my [favorite local brewery[https://otherhalfbrewing.com/).
+Inspired by my [favorite local brewery](https://otherhalfbrewing.com/).
 
 
 ## Instructions
 
 1. Clone locally using
  `git clone git@github.com:cfinn16/age-gate.git`
-2. Install dependencies using `npm install`
-3. Start your server using `npm start`
+2. Navigate to file using `cd age-gate`
+3. Install dependencies using `npm install`
+4. Start your server using `npm start`
 5. Navigate to app in [browser](http://localhost:3000)
 
 
