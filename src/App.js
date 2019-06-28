@@ -6,26 +6,38 @@ class App extends React.Component {
     super(props);
 
     this.date = new Date()
+    this.year = this.date.getFullYear()
     this.month = this.date.getMonth()
     this.years = Array.from(Array(100), (x, index) => index + (this.date.getFullYear() - 100)).reverse()
 
     this.state = {
-      userMonth: "",
+      userMonth: 0,
       userYear: ""
     };
   }
 
+  handleSubmit = (e) => {
+    e.preventDefault()
+    if (this.state.userYear < this.year - 21) {
+      window.confirm("Welcome!")
+    } else if (this.state.userYear === this.year - 21 && this.state.userMonth <= this.month) {
+      window.confirm("Welcome!")
+    } else {
+      window.alert("Sorry, you can't visit yet!")
+    }
+  }
+
   handleMonthChange = (e) => {
-    this.setState({userMonth: e.target.value})
+    this.setState({userMonth: parseInt(e.target.value)})
   }
 
   handleYearChange = (e) => {
-    this.setState({userYear: e.target.value})
+    this.setState({userYear: parseInt(e.target.value)})
   }
 
   render () {
     const options = this.years.map(year => {
-      return <option value={year}>{year}</option>
+      return <option key={year} value={year}>{year}</option>
     })
 
     return (
@@ -34,7 +46,7 @@ class App extends React.Component {
           <h3>Welcome to</h3>
           <h1>OTHER HALF</h1>
           <p>Are you 21 or older?</p>
-          <form>
+          <form onSubmit={e => this.handleSubmit(e)}>
             <select value={this.state.userMonth} onChange={e => this.handleMonthChange(e)}>
               <option value={0}>January</option>
               <option value={1}>February</option>
@@ -51,9 +63,9 @@ class App extends React.Component {
             </select>
             <select value={this.state.userYear} onChange={e => this.handleYearChange(e)}>
               {options}
-            </select>
+            </select><br/>
+            <input type="submit" value="Enter" />
           </form>
-          <button>Enter</button>
           <p>I am not of legal drinking age</p>
         </div>
       </div>

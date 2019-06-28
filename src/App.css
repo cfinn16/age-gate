@@ -1,13 +1,15 @@
 .App {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translateX(-50%) translateY(-50%);
+  background: linear-gradient(#9198e5, #e66465);
+  height: 100vh;
   font-family: 'Sanchez', serif;
   font-size: 100%;
 }
 
 .App-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
   text-align: center;
 }
 
