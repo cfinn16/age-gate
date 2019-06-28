@@ -1,4 +1,7 @@
 import React from 'react';
+import AgeForm from './AgeForm.js'
+import Welcome from './Welcome.js'
+import Failure from './Failure.js'
 import './App.css';
 
 class App extends React.Component {
@@ -11,6 +14,7 @@ class App extends React.Component {
     this.years = Array.from(Array(100), (x, index) => index + (this.date.getFullYear() - 100)).reverse()
 
     this.state = {
+      display: "form",
       userMonth: 0,
       userYear: "",
       isChecked: false
@@ -20,9 +24,9 @@ class App extends React.Component {
   handleSubmit = (e) => {
     e.preventDefault()
     if (this.state.userYear < this.year - 21) {
-      window.confirm("Welcome!")
+      this.setState({display: "welcome"})
     } else if (this.state.userYear === this.year - 21 && this.state.userMonth <= this.month) {
-      window.confirm("Welcome!")
+      this.setState({display: "welcome"})
     } else {
       window.alert("Sorry, you can't visit yet!")
     }
@@ -44,45 +48,26 @@ class App extends React.Component {
     const options = this.years.map(year => {
       return <option key={year} value={year}>{year}</option>
     })
+    const display = this.state.display
 
-    return (
-      <div className="App">
-        <div className="App-container">
-          <h3>Welcome to</h3>
-          <h1>OTHER HALF</h1>
-          <p>Are you 21 or older?</p>
-          <form onSubmit={e => this.handleSubmit(e)}>
-            <select value={this.state.userMonth} onChange={e => this.handleMonthChange(e)}>
-              <option value={0}>January</option>
-              <option value={1}>February</option>
-              <option value={2}>March</option>
-              <option value={3}>April</option>
-              <option value={4}>May</option>
-              <option value={5}>June</option>
-              <option value={6}>July</option>
-              <option value={7}>August</option>
-              <option value={8}>September</option>
-              <option value={9}>October</option>
-              <option value={10}>November</option>
-              <option value={11}>December</option>
-            </select>
-            <select value={this.state.userYear} onChange={e => this.handleYearChange(e)}>
-              {options}
-            </select><br/>
-            <label>
-              Remember Me
-              <input
-                name="rememberMe"
-                type="checkbox"
-                value={this.state.isChecked}
-                onChange={this.toggleCheck} />
-            </label><br/>
-            <input type="submit" value="Enter" />
-          </form>
-          <p>I am not of legal drinking age</p>
-        </div>
-      </div>
-    )
+    if (display === "form") {
+      return (
+        <AgeForm
+          options={options}
+          userMonth={this.state.userMonth}
+          userYear={this.state.userYear}
+          isChecked={this.state.isChecked}
+          handleSubmit={this.handleSubmit}
+          handleMonthChange={this.handleMonthChange}
+          handleYearChange={this.handleYearChange}
+          toggleCheck={this.toggleCheck}
+          />
+      )
+    } else if (display === "welcome") {
+      return <Welcome />
+    } else if (display === "failure") {
+      return <Failure />
+    }
   };
 }
 
