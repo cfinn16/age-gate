@@ -3,6 +3,7 @@
   height: 100vh;
   font-family: 'Sanchez', serif;
   font-size: 100%;
+  color: white;
 }
 
 .App-container {
@@ -13,8 +14,44 @@
   text-align: center;
 }
 
+h3 {
+  font-size: 1.25rem;
+}
+
 h1 {
-  letter-spacing: 0.3vw
+  font-size: 4rem;
+  letter-spacing: 0.3vw;
+}
+
+select {
+  margin: 1vh 2vw 5vw;
+  height: 30px;
+  width: 107px;
+  border-radius: 25px;
+  text-align-last: center;
+  font-family: 'Sanchez', serif;
+  font-size: 1.1rem;
+}
+
+input[type="submit"] {
+  height: 42px;
+  width: 150px;
+  background: #DDAB6A;
+  box-shadow: 0 2px gray;
+  border: none;
+  margin: 1.5vh 0vw;
+  color: white;
+  font-family: 'Sanchez', serif;
+  font-size: 1.5rem;
+}
+
+input[type="submit"]:hover {
+  opacity: 0.8;
+}
+
+input[type="submit"]:active {
+  box-shadow: 0 0;
+  top: 2px;
 }
 
 .App-link {

@@ -12,7 +12,8 @@ class App extends React.Component {
 
     this.state = {
       userMonth: 0,
-      userYear: ""
+      userYear: "",
+      isChecked: false
     };
   }
 
@@ -33,6 +34,10 @@ class App extends React.Component {
 
   handleYearChange = (e) => {
     this.setState({userYear: parseInt(e.target.value)})
+  }
+
+  toggleCheck = () => {
+    this.setState({isChecked: !this.state.isChecked})
   }
 
   render () {
@@ -56,7 +61,7 @@ class App extends React.Component {
               <option value={5}>June</option>
               <option value={6}>July</option>
               <option value={7}>August</option>
-              <option value={8}>Spetember</option>
+              <option value={8}>September</option>
               <option value={9}>October</option>
               <option value={10}>November</option>
               <option value={11}>December</option>
@@ -64,6 +69,14 @@ class App extends React.Component {
             <select value={this.state.userYear} onChange={e => this.handleYearChange(e)}>
               {options}
             </select><br/>
+            <label>
+              Remember Me
+              <input
+                name="rememberMe"
+                type="checkbox"
+                value={this.state.isChecked}
+                onChange={this.toggleCheck} />
+            </label><br/>
             <input type="submit" value="Enter" />
           </form>
           <p>I am not of legal drinking age</p>
