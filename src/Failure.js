@@ -5,7 +5,8 @@ function Failure() {
   return(
     <div className="Failure">
       <div className="Failure-container">
-        <h1>Sorry, you can't come in.</h1>
+        <h1>Sorry</h1>
+        <h2>You can't come in</h2>
       </div>
     </div>
   )

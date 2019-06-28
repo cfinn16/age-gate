@@ -72,3 +72,13 @@ img {
   max-height: 40vh;
   max-width: 30vw;
 }
+
+.link-button {
+  margin: 1vh 0.5vw;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 1.1rem;
+  color: #7c1fed;
+  max-width: 150px;
+}

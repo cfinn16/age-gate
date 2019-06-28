@@ -36,7 +36,7 @@ function AgeForm(props) {
           </label><br/>
           <input type="submit" value="Enter" />
         </form>
-        <p>I am not of legal drinking age</p>
+        <button className="link-button" onClick={e => props.handleNotOfAgeClick()}>I am not of legal drinking age</button>
       </div>
     </div>
   )
