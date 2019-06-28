@@ -28,7 +28,7 @@ class App extends React.Component {
     } else if (this.state.userYear === this.year - 21 && this.state.userMonth <= this.month) {
       this.setState({display: "welcome"})
     } else {
-      window.alert("Sorry, you can't visit yet!")
+      this.setState({display: "failure"})
     }
   }
 

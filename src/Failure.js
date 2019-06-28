@@ -1,10 +1,10 @@
 import React from 'react';
-import './App.css';
+import './Failure.css';
 
 function Failure() {
   return(
-    <div className="App">
-      <div className="App-container">
+    <div className="Failure">
+      <div className="Failure-container">
         <h1>Sorry, you can't come in.</h1>
       </div>
     </div>
